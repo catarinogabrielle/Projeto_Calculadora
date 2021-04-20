@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StatusBar, FlatList, Keyboard } from 'react-native';
+import { View, Text, StatusBar, FlatList, Keyboard, Alert } from 'react-native';
 
 import { Container, IdadeContainer, TextIdade, Input, Submit, List, BtnCalcular, Content, SubmitText, Calcular, CalcularText } from './styles';
 import HistoricoList from '../../components/HistoricoList';
@@ -16,11 +16,30 @@ export default function ProjetoCalculadora() {
         { key: '8', idade: 16 },
         { key: '9', idade: 80 },
     ]);
+
     const [idades, setIdades] = useState('');
 
     function handleSubmit() {
         Keyboard.dismiss();
-        alert('IDADE INSERIDA!');
+        if (isNaN(parseFloat(idades)) === null) {
+            alert('Preencha o campo!');
+            return;
+        }
+
+        Alert.alert(
+            'Confirmando dados',
+            `Idade: ${parseFloat(idades)} `,
+            [
+                {
+                    text: 'Cancelar',
+                    style: 'cancel'
+                },
+                {
+                    text: 'Continuar',
+                    onPress: () => { }
+                }
+            ]
+        )
     }
 
     return (
