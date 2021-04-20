@@ -16,6 +16,12 @@ export default function ProjetoCalculadora() {
         { key: '8', idade: 16 },
         { key: '9', idade: 80 },
     ]);
+    const [idades, setIdades] = useState('');
+
+    function handleSubmit() {
+        Keyboard.dismiss();
+        alert('IDADE INSERIDA!');
+    }
 
     return (
         <Container>
@@ -28,11 +34,14 @@ export default function ProjetoCalculadora() {
             <Content>
                 <Input
                     placeholder="Digite sua idade"
+                    keyboardType="numeric"
                     underlineColorAndroid="transparent"
+                    value={idades}
                     onSubmitEditing={() => Keyboard.dismiss()}
+                    onChangeText={(text) => setIdades(text)}
                 />
 
-                <Submit>
+                <Submit onPress={handleSubmit}>
                     <SubmitText>Inserir</SubmitText>
                 </Submit>
             </Content>
