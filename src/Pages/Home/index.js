@@ -75,7 +75,7 @@ export default function ProjetoCalculadora() {
             </List>
 
             <Calcular>
-                <BtnCalcular>
+                <BtnCalcular onPress={() => {alert('Fazer o calculo das medias')}}>
                     <CalcularText>Calcular Média</CalcularText>
                 </BtnCalcular>
             </Calcular>
