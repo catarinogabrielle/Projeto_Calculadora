@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#2C3E50',
-        paddingTop: 30 + getStatusBarHeight(),
+        paddingTop: 15 + getStatusBarHeight(),
     },
 
     idadeContainer: {
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
 
     textIdade: {
-        fontSize: 29,
+        fontSize: 35,
         color: '#fff',
     },
 
