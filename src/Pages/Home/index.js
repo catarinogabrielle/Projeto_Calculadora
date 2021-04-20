@@ -21,7 +21,7 @@ export default function ProjetoCalculadora() {
 
     function handleSubmit() {
         Keyboard.dismiss();
-        if (isNaN(parseFloat(idades)) === null) {
+        if (isNaN(parseFloat(idades)) || idades === null) {
             alert('Preencha o campo!');
             return;
         }
