@@ -12,6 +12,9 @@ export default function ProjetoCalculadora() {
         { key: '4', idade: 42 },
         { key: '5', idade: 50 },
         { key: '6', idade: 71 },
+        { key: '7', idade: 34 },
+        { key: '8', idade: 16 },
+        { key: '9', idade: 80 },
     ]);
 
     return (
@@ -43,7 +46,7 @@ export default function ProjetoCalculadora() {
                     showsVerticalScrollIndicator={false}
                     data={historico}
                     keyExtractor={item => item.key}
-                    renderItem={({ item }) => (<HistoricoList />)}
+                    renderItem={({ item }) => (<HistoricoList data={item} />)}
                 />
             </View>
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function HistoricoList() {
+export default function HistoricoList({ data }) {
     return (
         <View style={styles.container}>
-            <Text style={styles.idade}>24</Text>
+            <Text style={styles.idade}>{data.idade}</Text>
         </View>
     );
 }
