@@ -1,13 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, StatusBar } from 'react-native';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 export default function ProjetoCalculadora() {
 
     return (
         <View style={styles.container}>
 
-            <View>
-                <Text style={styles.textIdade}>Idade.</Text>
+            <StatusBar
+                backgroundColor="transparent"
+                barStyle="light-content"
+                translucent={true} />
+
+            <View style={styles.idadeContainer}>
+                <Text style={styles.textIdade}>Idades</Text>
             </View>
 
             <TextInput
@@ -15,7 +21,6 @@ export default function ProjetoCalculadora() {
                 placeholder="Digite sua idade"
                 underlineColorAndroid="transparent"
             />
-
             <Text style={styles.texto}></Text>
 
         </View>
@@ -26,7 +31,14 @@ export default function ProjetoCalculadora() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2C3E50'
+        backgroundColor: '#2C3E50',
+        paddingTop: 30 + getStatusBarHeight(),
+    },
+
+    idadeContainer: {
+        width: '50%',
+        height: 45,
+        marginLeft: 10,
     },
 
     textIdade: {
@@ -43,8 +55,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         padding: 10,
         backgroundColor: '#fff',
-
     },
+
     texto: {
         textAlign: 'center',
         fontSize: 15
