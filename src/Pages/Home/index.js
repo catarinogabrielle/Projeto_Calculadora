@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, StatusBar, TouchableOpacity, FlatList } from 'react-native';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { View, Text, StatusBar, FlatList, Keyboard } from 'react-native';
 
+import { Container, IdadeContainer, TextIdade, Input, Submit, List, BtnCalcular, Content, SubmitText, Calcular, CalcularText } from './styles';
 import HistoricoList from '../../components/HistoricoList';
 
 export default function ProjetoCalculadora() {
@@ -18,104 +18,41 @@ export default function ProjetoCalculadora() {
     ]);
 
     return (
-        <View style={styles.container}>
+        <Container>
+            <StatusBar backgroundColor="#131313" barStyle="light-content" />
 
-            <StatusBar
-                backgroundColor="#000"
-                barStyle="light-content"
-                translucent={true} />
+            <IdadeContainer>
+                <TextIdade>Idades</TextIdade>
+            </IdadeContainer>
 
-            <View style={styles.idadeContainer}>
-                <Text style={styles.textIdade}>Idades</Text>
-            </View>
-
-            <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                <TextInput
-                    style={styles.input}
+            <Content>
+                <Input
                     placeholder="Digite sua idade"
                     underlineColorAndroid="transparent"
+                    onSubmitEditing={() => Keyboard.dismiss()}
                 />
 
-                <TouchableOpacity style={styles.submit}>
-                    <Text style={{ color: '#353535', fontSize: 25 }}>Inserir</Text>
-                </TouchableOpacity>
-            </View>
+                <Submit>
+                    <SubmitText>Inserir</SubmitText>
+                </Submit>
+            </Content>
 
-            <View style={styles.lista}>
+            <List>
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     data={historico}
                     keyExtractor={item => item.key}
                     renderItem={({ item }) => (<HistoricoList data={item} />)}
                 />
-            </View>
+            </List>
 
-            <View style={{ height: 120, justifyContent: 'center', alignItems: 'center' }}>
-                <TouchableOpacity style={styles.btnCalcular}>
-                    <Text style={{color: '#fff', fontSize: 30}}>Calcular Média</Text>
-                </TouchableOpacity>
-            </View>
-
-        </View>
+            <Calcular>
+                <BtnCalcular>
+                    <CalcularText>Calcular Média</CalcularText>
+                </BtnCalcular>
+            </Calcular>
+        </Container>
     );
 }
 
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#2C3E50',
-        paddingTop: 15 + getStatusBarHeight(),
-    },
-
-    idadeContainer: {
-        width: '50%',
-        height: 45,
-        marginLeft: 20,
-    },
-
-    textIdade: {
-        fontSize: 35,
-        color: '#fff',
-    },
-
-    input: {
-        height: 50,
-        width: '50%',
-        borderWidth: 1,
-        borderColor: '#222',
-        fontSize: 20,
-        padding: 10,
-        backgroundColor: '#fff',
-        marginLeft: 20
-    },
-
-    submit: {
-        height: 50,
-        width: '35%',
-        borderWidth: 1,
-        borderColor: '#222',
-        backgroundColor: '#1ABC9C',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 15
-    },
-
-    lista: {
-        flex: 1,
-        paddingTop: 15,
-        backgroundColor: '#fff',
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 20
-    },
-
-    btnCalcular: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '90%',
-        height: 55,
-        backgroundColor: '#3498DB'
-    }
-});
 
