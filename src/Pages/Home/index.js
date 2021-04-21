@@ -6,19 +6,19 @@ import { Container, IdadeContainer, TextIdade, Input, Submit, List, BtnCalcular,
 import HistoricoList from '../../components/HistoricoList';
 
 export default function ProjetoCalculadora() {
-    const [idades, setIdades] = useState('');
-    const [historico, setHistorico] = useState([]);
+    const [input, setInput] = useState();
+    const [historico, setHistorico] = useState();
 
     function handleSubmit() {
         Keyboard.dismiss();
-        if (isNaN(parseFloat(idades)) || idades === null) {
+        if (isNaN(parseFloat(input)) || input === null) {
             alert('Preencha o campo!');
             return;
         }
 
         Alert.alert(
             'Confirmando dados',
-            `Idade: ${parseFloat(idades)} `,
+            `Idade: ${parseFloat(input)} `,
             [
                 {
                     text: 'Cancelar',
@@ -32,8 +32,10 @@ export default function ProjetoCalculadora() {
         )
     }
 
+    //ele esta adicionando um numero de cada vez  --- resolver --
     function handleAdd() {
-        alert('aqui ele deveria adicionar a idade');
+        setInput();
+        setHistorico(input);
     }
 
     return (
@@ -49,9 +51,9 @@ export default function ProjetoCalculadora() {
                     placeholder="Digite sua idade"
                     keyboardType="numeric"
                     underlineColorAndroid="transparent"
-                    value={idades}
+                    value={input}
                     onSubmitEditing={() => Keyboard.dismiss()}
-                    onChangeText={(text) => setIdades(text)}
+                    onChangeText={(text) => setInput(text)}
                 />
 
                 <Submit onPress={handleSubmit}>
@@ -63,6 +65,7 @@ export default function ProjetoCalculadora() {
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     data={historico}
+                    keyExtractor={item => item.key}
                     renderItem={({ item }) => (<HistoricoList data={item} />)}
                 />
             </List>
