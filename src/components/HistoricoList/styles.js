@@ -10,6 +10,6 @@ align-items: center;
 `;
 
 export const IdadeText = styled.Text`
-color: ${props => props < 20 ? '#2BB1DB' : '#E48A1F'};
+color: ${props => props.idade == 20 ? '#2BB1DB' : '#232323'};
 font-size: 30px;
 `;

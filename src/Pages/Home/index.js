@@ -7,7 +7,16 @@ import HistoricoList from '../../components/HistoricoList';
 
 export default function ProjetoCalculadora() {
     const [input, setInput] = useState();
-    const [historico, setHistorico] = useState();
+    const [historico, setHistorico] = useState([
+        {key: '1', idade: 20},
+        {key: '2', idade: 12},
+        {key: '3', idade: 34},
+        {key: '4', idade: 80},
+        {key: '5', idade: 16},
+        {key: '6', idade: 48},
+        {key: '7', idade: 79},
+        {key: '8', idade: 10},
+    ]);
 
     function handleSubmit() {
         Keyboard.dismiss();
@@ -35,7 +44,7 @@ export default function ProjetoCalculadora() {
     //ele esta adicionando um numero de cada vez  --- resolver --
     function handleAdd() {
         setInput();
-        setHistorico(input);
+        //setHistorico(input);
     }
 
     return (
@@ -50,6 +59,7 @@ export default function ProjetoCalculadora() {
                 <Input
                     placeholder="Digite sua idade"
                     keyboardType="numeric"
+                    returnKeyType="next"
                     underlineColorAndroid="transparent"
                     value={input}
                     onSubmitEditing={() => Keyboard.dismiss()}

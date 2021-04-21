@@ -5,7 +5,7 @@ import { Container, IdadeText } from './styles';
 export default function HistoricoList({ data }) {
     return (
         <Container>
-            <IdadeText>{data}</IdadeText>
+            <IdadeText>{data.idade}</IdadeText>
         </Container>
     );
 }
