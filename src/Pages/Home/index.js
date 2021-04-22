@@ -11,7 +11,16 @@ import HistoricoList from '../../components/HistoricoList';
 
 export default function ProjetoCalculadora() {
     const [input, setInput] = useState('');
-    const [historico, setHistorico] = useState([{ key: '1', idade: 20 }]);
+    const [historico, setHistorico] = useState([
+        { key: '1', idade: 20 },
+        { key: '2', idade: 31 },
+        { key: '3', idade: 44 },
+        { key: '4', idade: 15 },
+        { key: '5', idade: 76 },
+        { key: '6', idade: 52 },
+        { key: '7', idade: 80 },
+        { key: '8', idade: 27 },
+    ]);
 
 
     //Component DidMount
